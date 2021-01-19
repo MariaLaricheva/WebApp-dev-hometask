@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Компания</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</head>
+
+ <style>
+    body {
+        background-image: url('../static/images/controllers.jpg');
+        background-repeat: repeat;
+        background-color: #9de7ee;
+   }
+
+    h1{
+     background: #c4c6cb;
+
+    }
+
+    li{
+     background: #c4c6cb;
+     padding-left:300px;
+    }
+
+
+   .image-center {
+  display: block;
+  margin: 0 auto;
+    }
+ </style>
+
+    <section>
+      <div class="text-center">
+          <p> </p>
+          <a class="btn btn-light center-block" href="/" role="button">На главную</a>
+          <p> </p>
+     </div>
+    </section>
+
+    <h1 class="editContent" ALIGN="center" style="outline: ridge; cursor: inherit; font-size:100px" >
+        {{ company.title }}
+        <p> </p>
+    </h1>
+
+
+{% if company.id == 1 %}
+    <img src="{% static '..\static\images\logo6.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% elif company.id == 2 %}
+    <img src="{% static '..\static\images\logo5.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% elif company.id == 3 %}
+    <img src="{% static '..\static\images\logo4.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% elif company.id == 4 %}
+    <img src="{% static '..\static\images\logo3.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% elif company.id == 5 %}
+    <img src="{% static '..\static\images\logo2.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% elif company.id == 6 %}
+    <img src="{% static '..\static\images\logo1.jpg' %}" width="190" height="190" alt="альтернативный текст" class="image-center">
+{% endif %}
+
+
+
+           <li style="list-style: none">
+                    <span><b>Описание:</b>
+                        {{ company.description }}
+                    </span>
+           </li>
+                <li style="list-style: none">
+                    <span><b>Игры:</b> <br>
+                        {% for name in company.name.all %}
+                            <b> <a href="{% url "game" pk=name.pk %}" class="editContent"> {{ name.name }} </a> </b>
+                            {{ ' - ' }}
+                            {{ name.description }}
+                            <br>
+                        {% endfor %}
+                    </span>
+                </li>
+
+</body>
+</html>

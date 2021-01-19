@@ -1,0 +1,103 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Видеоигра</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    body {
+        background-image: url('static/images/controllers.jpg');
+        background-repeat: repeat;
+        background-color: #9aa5c0;
+   }
+
+    h1{
+     background: #c4c6cb;
+
+    }
+
+    li{
+     background: white;
+     padding-left:100px;
+    }
+
+ </style>
+
+<body>
+
+<section>
+  <div class="text-center">
+      <p> </p>
+     <a class="btn btn-light center-block" href="/" role="button">На главную</a>
+      <p> </p>
+ </div>
+</section>
+
+     <h1 class="editContent" align="center" style="outline: ridge; cursor: inherit; font-size:100px" >
+               {{ game.name }}
+        <p> </p>
+    </h1>
+
+
+
+<table width="100%" cellspacing="0" cellpadding="5">
+   <tr>
+        <td width="200" valign="top">
+
+        </td>
+       <td width="600" valign="top">
+            {% if game.id == 1 %}
+                <img src="{% static '..\static\images\15.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 2 %}
+                <img src="{% static '..\static\images\14.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 3 %}
+                <img src="{% static '..\static\images\13.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 4 %}
+                <img src="{% static '..\static\images\12.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 5 %}
+                <img src="{% static '..\static\images\11.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 6 %}
+                <img src="{% static '..\static\images\10.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 7 %}
+                <img src="{% static '..\static\images\9.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 8 %}
+                <img src="{% static '..\static\images\8.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 9 %}
+                <img src="{% static '..\static\images\7.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 10 %}
+                <img src="{% static '..\static\images\6.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 11 %}
+                <img src="{% static '..\static\images\5.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 12 %}
+                <img src="{% static '..\static\images\4.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 13 %}
+                <img src="{% static '..\static\images\lis2.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 14 %}
+                <img src="{% static '..\static\images\2.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% elif game.id == 15 %}
+                <img src="{% static '..\static\images\1.jpg' %}" width="450" height="600" alt="альтернативный текст" >
+            {% endif %}
+
+        </td>
+
+       <td valign="top">
+       <li style="list-style: none">
+                    <span><b>Описание:</b>
+                        {{ game.description }}
+                    </span>
+       </li>
+       </td>
+   </tr>
+  </table>
+
+</body>
+</html>

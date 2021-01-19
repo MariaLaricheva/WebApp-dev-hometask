@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <style>
+    body {
+        background-image: url('../static/images/controllers.jpg');
+        background-repeat: repeat;
+        background-color: #c4c6cb;
+   }
+
+    h1{
+     background: #c4c6cb;
+
+    }
+
+    li, ul, a{
+     padding-left:300px;
+    }
+
+    .sometable{
+        background: #c4c6cb;
+    }
+
+    .image-center {
+      display: block;
+      margin: 0 auto;
+    }
+
+ </style>
+
+    <meta charset="UTF-8">
+    <title>Список компаний</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+    <h1 class="editContent" align="center" style="outline: ridge; cursor: inherit; font-size:100px" >
+               Добро пожаловать
+        <p> </p>
+    </h1>
+
+</head>
+
+<body>
+
+        <div class="sometable">
+        {% for company in company_list %}
+            <ul class="list-group">
+                <li class="list-group-item"> <a href="{% url "company" pk=company.pk %}" class="editContent"> {{ company.title }} </a> {{ '-' }}
+                    {% for  name in company.name.all %}
+                        {{ name.name }}
+                        {{ '; ' }}
+                    {% endfor %}
+                </li>
+            </ul>
+        {% endfor %}
+        </div>
+
+</body>
+</html>
